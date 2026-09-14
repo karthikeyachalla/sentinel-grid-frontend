@@ -36,13 +36,19 @@
     </div>
   </div>
   <div class="topbar-right">
+    <button class="topbar-ml-btn" onclick="openMLModelsPanel()" style="background:linear-gradient(135deg,rgba(168,85,247,0.25),rgba(59,130,246,0.25));border:1px solid rgba(168,85,247,0.5);color:#f1f5f9;padding:6px 12px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:0 0 10px rgba(168,85,247,0.2);margin-right:8px">
+      <span style="font-size:14px">🧠</span> <span>AI / ML Models (7 Ensembles)</span>
+    </button>
     <div class="disaster-select-wrap">
       <label>Scenario</label>
       <select id="disasterSelect" onchange="changeDisaster(this.value)">
-        <option value="flood" selected>🌊 Coimbatore Flood</option>
-        <option value="earthquake">🏚 Earthquake (Sim)</option>
-        <option value="cyclone">🌀 Cyclone (Sim)</option>
-        <option value="landslide">⛰ Landslide (Sim)</option>
+        <option value="flood" selected>🌊 Flood (Noyyal Basin)</option>
+        <option value="earthquake">🌋 Earthquake (Palghat Margin)</option>
+        <option value="landslide">⛰️ Landslide (Valparai Ghats)</option>
+        <option value="cyclone">🌀 Cyclone (Inland Gale Surge)</option>
+        <option value="lightning">⚡ Lightning (Peelamedu Radar)</option>
+        <option value="drought">🌾 Drought (Rain-Shadow Belt)</option>
+        <option value="wildfire">🔥 Wildfire (Western Ghats Fringe)</option>
       </select>
     </div>
     <div class="live-clock" id="liveClock"></div>

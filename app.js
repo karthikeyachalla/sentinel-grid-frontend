@@ -166,10 +166,18 @@ function renderZones(cells) {
   document.getElementById('cellCount').textContent =
     `${cells.length} cells — RED:${counts.RED} BLUE:${counts.BLUE} GREEN:${counts.GREEN}`;
 
-  if (cells.length > 0 && currentDisaster === 'landslide') {
-    map.setView([10.3264, 76.9554], 11);
-  } else if (cells.length > 0 && currentDisaster === 'flood') {
-    map.setView([11.0168, 76.9558], 12);
+  if (cells.length > 0) {
+    const disasterCenters = {
+      landslide:  [[10.42, 76.95], 11],
+      earthquake: [[10.98, 76.98], 11],
+      cyclone:    [[11.01, 77.00], 12],
+      lightning:  [[11.05, 76.98], 12],
+      drought:    [[10.98, 77.06], 11],
+      wildfire:   [[11.01, 76.84], 11],
+      flood:      [[11.0168, 76.9558], 12]
+    };
+    const target = disasterCenters[currentDisaster] || [[11.0168, 76.9558], 12];
+    map.setView(target[0], target[1]);
   }
   renderAssets(cells);
 }
@@ -409,6 +417,14 @@ function switchTab(name) {
   else stopRadar();
   if (name === 'xai') populateXAISelect();
   if (name === 'models') renderModels();
+}
+
+function openMLModelsPanel() {
+  switchTab('models');
+  const panel = document.getElementById('content-models');
+  if (panel) {
+    panel.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 // ── KPI UPDATE ────────────────────────────────────────────────────────────
